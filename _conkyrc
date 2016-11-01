@@ -1,0 +1,72 @@
+
+conky.config = {
+    background = true,
+    use_xft = true,
+    xftfont = 'Sans:size=10',
+    xftalpha = 1,
+    update_interval = 1.0,
+    total_run_times = 0,
+    own_window = true,
+    own_window_transparent = true,
+    own_window_type = 'normal',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    double_buffer = true,
+    minimum_size = '200 800',
+    maximum_width = 200,
+    draw_shades = true,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = true,
+    default_color = 'white',
+    default_shade_color = 'black',
+    default_outline_color = 'white',
+    alignment = 'top_right',
+    gap_x = 20,
+    gap_y = 20,
+    no_buffers = true,
+    uppercase = false,
+    cpu_avg_samples = 2,
+    override_utf8_locale = false,
+    text_buffer_size = 1024
+}
+
+conky.text = [[
+${color white}${font sans-serif:bold:size=10}$nodename ${cpubar cpu4 1,45}${font sans-serif:bold:size=10}${alignr}${addr wlan0}
+${font sans-serif:normal:size=10}${exec date +'%l:%M:%S %p %a %b %e, %Y'}
+
+${color white}${font sans-serif:bold:size=10}Ubuntu 16.04.1 LTS "xenial" ${hr 2}
+${font sans-serif:normal:size=10}$sysname $kernel $alignr $machine
+Uptime:$alignr$uptime
+Frequency (in MHz): $alignr$freq
+File System: $alignr${fs_type}
+
+${color white}${font sans-serif:bold:size=10}PROCESSORS ${hr 2}
+${font sans-serif:normal:size=10}${cpugraph cpu1}
+CPU1: ${cpu cpu1}% ${cpubar cpu1}
+
+${color white}${font sans-serif:bold:size=10}MEMORY ${hr 2}
+${font sans-serif:normal:size=10}RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+
+${color white}${font sans-serif:bold:size=10}DISKS ${hr 2}
+${font sans-serif:normal:size=10}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${fs_bar /}
+SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
+${swapbar}
+
+${color white}${font sans-serif:bold:size=10}IMPORTANT ${hr 2}
+${font sans-serif:normal:size=10}${exec cat ~/.output/important.out}
+
+${color white}${font sans-serif:bold:size=10}TOP PROCESSES ${cpubar cpu4 1,65} ${alignr}$processes
+${font sans-serif:normal:size=10}${top_mem name 1}${alignr}${top mem 1} %
+${top_mem name 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${alignr}${top mem 3} %
+
+${color white}${font sans-serif:bold:size=10}NETWORK ${cpubar cpu4 1,99}${alignr}${wireless_essid wlan0}
+${font sans-serif:normal:size=10}Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
+${downspeedgraph wlan0}
+DLS:${downspeed wlan0} kb/s $alignr total: ${totaldown wlan0}
+${upspeedgraph wlan0}
+ULS:${upspeed wlan0} kb/s $alignr total: ${totalup wlan0}
+]]
+

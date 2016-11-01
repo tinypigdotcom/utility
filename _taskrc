@@ -1,0 +1,58 @@
+# [Created by task 2.2.0 12/31/2013 14:42:39]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/share/taskwarrior/light-16.theme
+#include /usr/share/taskwarrior/light-256.theme
+#include /usr/share/taskwarrior/dark-16.theme
+#include /usr/share/taskwarrior/dark-256.theme
+#include /usr/share/taskwarrior/dark-red-256.theme
+#include /usr/share/taskwarrior/dark-green-256.theme
+#include /usr/share/taskwarrior/dark-blue-256.theme
+#include /usr/share/taskwarrior/dark-violets-256.theme
+include ~/.task/my.theme
+#include /usr/share/taskwarrior/solarized-dark-256.theme
+#include /usr/share/taskwarrior/solarized-light-256.theme
+#include /usr/share/taskwarrior/dark-yellow-green.theme
+#include /usr/share/taskwarrior/dark-gray-256.theme
+
+search.case.sensitive=no
+rc.report.overdue.sort=priority-
+
+report.now.description=crocodile
+report.now.columns=id,priority,due,project,depends,description
+report.now.filter=-postponed +OVERDUE proj: status:pending
+report.now.sort=priority-,due
+
+report.nowp.description=pig
+report.nowp.columns=id,priority,due,project,depends,description
+report.nowp.filter=-postponed +OVERDUE limit:page proj: status:pending
+report.nowp.sort=priority-,due
+
+report.nowc.description=conky
+report.nowc.dateformat=m/d
+report.nowc.columns=due,description
+report.nowc.filter=-postponed +OVERDUE limit:8 proj: status:pending
+report.nowc.sort=priority-,due
+
+report.alldue.description=Pig
+report.alldue.columns=id,priority,due,project,tags,depends,description
+report.alldue.filter=+OVERDUE limit:page proj: status:pending
+report.alldue.sort=priority-,due
+
+journal.time=on
+#rule.precedence.color=due.today,active,blocking,blocked,overdue,due,scheduled,keyword.,project.,tag.,uda.,recurring,pri.,tagged,completed,deleted
+rule.precedence.color=pri.,due.today,active,blocking,blocked,overdue,due,scheduled,keyword.,project.,tag.,uda.,recurring,tagged,completed,deleted
+

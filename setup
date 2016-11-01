@@ -1,0 +1,7 @@
+git clone git@github.com:tinypigdotcom/utility
+git clone git@github.com:tinypigdotcom/dev
+git clone git@github.com:tinypigdotcom/bin
+git clone git@github.com:tinypigdotcom/lib
+git clone git@github.com:tinypigdotcom/vim
+git clone git@github.com:tinypigdotcom/tests
+
