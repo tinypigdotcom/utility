@@ -18,9 +18,9 @@
 #[ -z "$PS1" ] && return
 
 # Set PATH so it includes user's private bin if it exists
-# if [ -d "${HOME}/bin" ] ; then
-#   PATH="${HOME}/bin:${PATH}"
-# fi
+if [ -d "${HOME}/bin" ] ; then
+  PATH="${HOME}/bin:${PATH}"
+fi
 
 # Set MANPATH so it includes users' private man if it exists
 # if [ -d "${HOME}/man" ]; then
@@ -67,7 +67,6 @@ alias d='. d'
 alias f='. f'
 alias p='. p'
 alias af='. af'
-source ~/.penv
 export AF_DIR=$HOME
 
 #  PS1=$(print '\033]0;${PWD}\n\033[32m${USER}@${HOSTNAME} \033[33m${PWD/${HOME}/~}\033[0m\n$ ')
@@ -237,7 +236,7 @@ fi
 # Test user type:
 if [[ ${USER} == "root" ]]; then
     SU=${Red}           # User is root.
-elif [[ ${USER} != $(logname) ]]; then
+elif [[ ${USER} != $(logname 2>/dev/null) ]]; then
     SU=${BRed}          # User is not login user.
 else
     SU=${BCyan}         # User is normal (well ... most of us are).
@@ -952,4 +951,7 @@ export LSCOLORS=hxhxhxhxhxhxhxhxhxhxhx
 if [ -f "${HOME}/.bashrc2" ] ; then
   source "${HOME}/.bashrc2"
 fi
+
+NOTEFILES=~/Dropbox/dmb/reader_sync/info/notes.txt
+export NOTEFILES
 
