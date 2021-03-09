@@ -1,3 +1,4 @@
+cd
 git clone git@github.com:tinypigdotcom/utility
 git clone git@github.com:tinypigdotcom/dev
 git clone git@github.com:tinypigdotcom/bin
