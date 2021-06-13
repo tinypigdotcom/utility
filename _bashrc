@@ -947,11 +947,11 @@ if [ -f "$HOME/perl5/perlbrew/etc/bashrc" ] ; then
 fi
 export LSCOLORS=hxhxhxhxhxhxhxhxhxhxhx
 
+NOTEFILES=~/Dropbox/dmb/reader_sync/info/notes.txt
+export NOTEFILES
+
 # source .bashrc2 if it exists
 if [ -f "${HOME}/.bashrc2" ] ; then
   source "${HOME}/.bashrc2"
 fi
-
-NOTEFILES=~/Dropbox/dmb/reader_sync/info/notes.txt
-export NOTEFILES
 
