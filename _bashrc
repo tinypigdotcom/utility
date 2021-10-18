@@ -15,7 +15,7 @@
 #export BASHRC=1
 
 # If not running interactively, don't do anything
-#[ -z "$PS1" ] && return
+[ -z "$PS1" ] && return
 
 # Set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
@@ -229,6 +229,8 @@ trap _exit EXIT
 
 if [ -f "${HOME}/.dev" ]; then
     CNX=${BCyan}
+elif [ -f "${HOME}/.work" ]; then
+    CNX=${BYellow}
 else
     CNX=${BWhite}${On_Red}
 fi
